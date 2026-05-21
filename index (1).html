@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">
+          <span class="logo-dot"></span>
+          <span class="logo-text">streak.</span>
+        </div>
+        <p class="header-sub">your habits, one week at a time</p>
+      </div>
+      <button class="add-btn" id="openModal" aria-label="Add a new habit">
+        + Add Habit
+      </button>
+    </header>
+
+    <!-- Week Navigation -->
+    <nav class="week-nav" aria-label="Week navigation">
+      <button class="nav-btn" id="prevWeek" aria-label="Previous week">&#8592; prev</button>
+      <div class="week-label-wrap">
+        <span class="week-range" id="weekRange"></span>
+        <button class="today-btn" id="goToday" aria-label="Go to current week">this week</button>
+      </div>
+      <button class="nav-btn" id="nextWeek" aria-label="Next week">next &#8594;</button>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🌱</div>
+        <h2 class="empty-title">Nothing here yet</h2>
+        <p class="empty-msg">Add your first habit to get started.<br>Small steps, big results.</p>
+        <button class="add-btn-empty" id="openModalEmpty">+ Add your first habit</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid-wrapper" id="gridWrapper">
+        <div class="grid-scroll">
+          <table class="habit-grid" id="habitGrid" role="grid" aria-label="Weekly habit tracker">
+            <thead>
+              <tr id="dayHeaders">
+                <th class="habit-col-header" scope="col">Habit</th>
+                <!-- Day headers rendered by JS -->
+              </tr>
+            </thead>
+            <tbody id="habitRows">
+              <!-- Rows rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Add/Edit Habit Modal -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <h2 class="modal-title" id="modalTitle">New Habit</h2>
+      <input
+        type="text"
+        class="modal-input"
+        id="habitInput"
+        placeholder="e.g. Read 30 min, Exercise, Drink water…"
+        maxlength="40"
+        autocomplete="off"
+        aria-label="Habit name"
+      />
+      <div class="modal-actions">
+        <button class="modal-cancel" id="modalCancel">Cancel</button>
+        <button class="modal-save" id="modalSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
